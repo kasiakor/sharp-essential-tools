@@ -1,5 +1,6 @@
 ﻿using EssentialTools.Models;
 using System.Web.Mvc;
+using Ninject;
 
 namespace EssentialTools.Controllers
 {
@@ -15,7 +16,20 @@ namespace EssentialTools.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            LinqValueCalculator calc = new LinqValueCalculator();
+            //LinqValueCalculator calc = new LinqValueCalculator();
+
+            //NINJECT 
+            //create an instance of the kernel, object that is resolving dependencies and creating new objects
+            IKernel ninjectKernel = new StandardKernel();
+
+            //bing interface with implementation object
+            //inetrface as a type, clas as a type
+            //dependecies should be resolved by creating an instance of the LinqValueCalculator class
+            ninjectKernel.Bind<IValueCalculator>().To<LinqValueCalculatorInterface>();
+
+            //use Get method to create an object
+            IValueCalculator calc = ninjectKernel.Get<IValueCalculator>();
+
             ShoppingCart cart = new ShoppingCart(calc) { Products = products };
             decimal totalValue = cart.CalculateProductTotal();
 
