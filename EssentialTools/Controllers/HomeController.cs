@@ -30,7 +30,7 @@ namespace EssentialTools.Controllers
             //use Get method to create an object
             IValueCalculator calc = ninjectKernel.Get<IValueCalculator>();
 
-            ShoppingCart cart = new ShoppingCart(calc) { Products = products };
+            ShoppingCartInterface cart = new ShoppingCartInterface(calc) { Products = products };
             decimal totalValue = cart.CalculateProductTotal();
 
             return View(totalValue);
