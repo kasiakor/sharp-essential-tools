@@ -9,10 +9,10 @@ namespace EssentialTools.Controllers
         //refactoring home controller to use di
         private IValueCalculator calc;
         private Product[] products = {
-        new Product {Name = " Kayak", Category = "Watersports", Price = 37.50M},
-        new Product {Name = "Lifejacket", Category = "Watersports", Price = 48.95M},
-        new Product {Name = "Soccer ball", Category = "Soccer", Price = 19.50M},
-        new Product {Name = "Corner flag", Category = "Soccer", Price = 34.95M}
+        new Product {Name = " Kayak", Category = "Watersports", Price = 6.00M},
+        new Product {Name = "Lifejacket", Category = "Watersports", Price = 8.00M},
+        new Product {Name = "Soccer ball", Category = "Soccer", Price = 10.00M},
+        new Product {Name = "Corner flag", Category = "Soccer", Price = 6.00M}
 };
 
         //new home controller and index method, constructor injection
@@ -58,13 +58,13 @@ namespace EssentialTools.Controllers
         //    return View(totalValue);
         //}
 
-        public ActionResult UseInterface()
-        {
-            IValueCalculator calc = new LinqValueCalculatorInterface();
-            ShoppingCartInterface cart = new ShoppingCartInterface(calc) { Products = products };
-            decimal totalValue = cart.CalculateProductTotal();
+        //public ActionResult UseInterface()
+        //{
+        //    IValueCalculator calc = new LinqValueCalculatorInterface();
+        //    ShoppingCartInterface cart = new ShoppingCartInterface(calc) { Products = products };
+        //    decimal totalValue = cart.CalculateProductTotal();
 
-            return View(totalValue);
-        }
+        //    return View(totalValue);
+        //}
     }
 }
