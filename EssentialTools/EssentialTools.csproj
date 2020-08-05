@@ -129,6 +129,7 @@
     <Compile Include="Models\IValueCalculator.cs" />
     <Compile Include="Models\LinqValueCalculatorInterface.cs" />
     <Compile Include="Models\LinqValueCalculator.cs" />
+    <Compile Include="Models\MinimumDiscountHelper.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\ShoppingCartInterface.cs" />
     <Compile Include="Models\ShoppingCart.cs" />
